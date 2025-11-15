@@ -314,28 +314,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1em;
+  padding: 2em;
   line-height: 1.5em;
+  width: 100%;
+}
+
+/* Center wrapper for book */
+.book-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
 }
 
 /* Book container */
 .book {
   transition: opacity 0.4s 0.2s;
   perspective: 250vw;
-  width: 100%;
-  max-width: 1200px;
+  width: auto;
+  display: flex;
+  justify-content: center;
 }
 
-/* Pages container - Better proportions */
+/* Pages container - Fixed laptop sizing */
 .book .pages {
-  width: 60vw;
-  height: 42vw; /* Slightly reduced height for better proportions */
+  width: 800px; /* Fixed width for laptop */
+  height: 560px; /* Fixed height for laptop */
   position: relative;
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  border-radius: 4px;
-  max-width: 800px;
-  max-height: 560px;
+  border-radius: 8px;
 }
 
 /* Individual page */
@@ -345,8 +354,8 @@
   margin: 0;
   position: absolute;
   top: 0;
-  width: 30vw;
-  height: 42vw; /* Match pages container height */
+  width: 400px; /* Fixed width */
+  height: 560px; /* Fixed height */
   transform-origin: 0 0;
   transition: transform 1.4s;
   backface-visibility: hidden;
@@ -354,8 +363,6 @@
   cursor: pointer;
   user-select: none;
   background-color: #f0f0f0;
-  max-width: 400px;
-  max-height: 560px;
   overflow: hidden;
 }
 
@@ -367,7 +374,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5vw;
+  padding: 40px;
 }
 
 .full-page-image {
@@ -389,12 +396,14 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
 }
 
+/* Fixed text sizes for laptop */
 .page-text {
-  font-size: 4.5vw;
+  font-size: 48px; /* Fixed size for laptop */
   color: #000;
   text-align: center;
   margin: 0;
   font-family: 'Lovers Quarrel', cursive;
+  line-height: 1.2;
 }
 
 .white-text {
@@ -403,26 +412,29 @@
 }
 
 .page-title {
-  font-size: 3.5vw;
-  margin-bottom: 2.5vw;
+  font-size: 42px; /* Fixed size for laptop */
+  margin-bottom: 30px;
   text-align: center;
   color: #333;
   font-family: 'Lovers Quarrel', cursive;
+  line-height: 1.2;
 }
 
 .page-subtitle {
-  font-size: 3vw;
-  margin-bottom: 1.5vw;
+  font-size: 36px; /* Fixed size for laptop */
+  margin-bottom: 20px;
   color: #666;
   text-align: center;
   font-family: 'Lovers Quarrel', cursive;
+  line-height: 1.2;
 }
 
 .page-details {
-  font-size: 2.2vw;
+  font-size: 28px; /* Fixed size for laptop */
   color: #888;
   text-align: center;
   font-family: 'Lovers Quarrel', cursive;
+  line-height: 1.2;
 }
 
 /* Page flipping styles */
@@ -442,7 +454,7 @@
   pointer-events: all;
   transform: rotateY(0deg);
   right: 0;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 8px 8px 0;
   background-image: linear-gradient(to right, rgba(0,0,0,.15) 0%, rgba(0,0,0,0) 10%);
 }
 
@@ -463,7 +475,7 @@
   transform: rotateY(180deg);
   transform-origin: 100% 0;
   left: 0;
-  border-radius: 4px 0 0 4px;
+  border-radius: 8px 0 0 8px;
   border-color: black;
   background-image: linear-gradient(to left, rgba(0,0,0,.12) 0%, rgba(0,0,0,0) 10%);
 }
@@ -506,10 +518,80 @@
   background-position: right top;
 }
 
-/* Mobile Responsive Styles - Better proportions */
+/* Laptop/Desktop Styles (default) */
+@media (min-width: 1025px) {
+  .book .pages {
+    width: 800px;
+    height: 560px;
+  }
+
+  .book .page {
+    width: 400px;
+    height: 560px;
+  }
+
+  .page-content {
+    padding: 40px;
+  }
+
+  .page-text {
+    font-size: 48px;
+  }
+
+  .page-title {
+    font-size: 42px;
+    margin-bottom: 30px;
+  }
+
+  .page-subtitle {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .page-details {
+    font-size: 28px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .book .pages {
+    width: 700px;
+    height: 490px;
+  }
+
+  .book .page {
+    width: 350px;
+    height: 490px;
+  }
+
+  .page-content {
+    padding: 30px;
+  }
+
+  .page-text {
+    font-size: 42px;
+  }
+
+  .page-title {
+    font-size: 36px;
+    margin-bottom: 25px;
+  }
+
+  .page-subtitle {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+
+  .page-details {
+    font-size: 24px;
+  }
+}
+
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
   .wedding-book-container {
-    padding: 0.5em;
+    padding: 1em;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
@@ -517,24 +599,20 @@
 
   .book .pages {
     width: 95vw;
-    height: 65vw; /* Much better proportion - similar to A4 ratio */
-    max-width: none;
-    max-height: none;
+    height: 65vw;
   }
 
   .book .page {
     width: 47.5vw;
-    height: 65vw; /* Same as pages container */
-    max-width: none;
-    max-height: none;
+    height: 65vw;
   }
 
   .page-content {
-    padding: 3vw;
+    padding: 4vw;
   }
 
   .page-text {
-    font-size: 6vw; /* Better balanced text size */
+    font-size: 6vw;
   }
 
   .page-title {
@@ -551,7 +629,6 @@
     font-size: 4vw;
   }
 
-  /* Adjust perspective for mobile */
   .book {
     perspective: 300vw;
   }
@@ -561,7 +638,7 @@
 @media (max-width: 480px) {
   .book .pages {
     width: 92vw;
-    height: 70vw; /* Slightly taller but still good proportion */
+    height: 70vw;
   }
 
   .book .page {
@@ -587,67 +664,5 @@
 
   .book {
     perspective: 350vw;
-  }
-}
-
-/* Tablet adjustments */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .book .pages {
-    width: 75vw;
-    height: 52.5vw; /* Maintain 3:2 ratio */
-  }
-
-  .book .page {
-    width: 37.5vw;
-    height: 52.5vw;
-  }
-
-  .page-text {
-    font-size: 4vw;
-  }
-
-  .page-title {
-    font-size: 3.5vw;
-  }
-
-  .page-subtitle {
-    font-size: 3vw;
-  }
-
-  .page-details {
-    font-size: 2.5vw;
-  }
-}
-
-/* Large desktop */
-@media (min-width: 1200px) {
-  .book .pages {
-    width: 50vw;
-    height: 35vw; /* Nice wide format for large screens */
-    max-width: 700px;
-    max-height: 490px;
-  }
-
-  .book .page {
-    width: 25vw;
-    height: 35vw;
-    max-width: 350px;
-    max-height: 490px;
-  }
-
-  .page-text {
-    font-size: 3vw;
-  }
-
-  .page-title {
-    font-size: 2.5vw;
-  }
-
-  .page-subtitle {
-    font-size: 2.2vw;
-  }
-
-  .page-details {
-    font-size: 1.8vw;
   }
 }
