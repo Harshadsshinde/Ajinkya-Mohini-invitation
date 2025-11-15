@@ -1,0 +1,653 @@
+/* WeddingBook.css */
+/* @import url('https://fonts.googleapis.com/css?family=Lovers+Quarrel'); */
+
+.book {
+  transition: opacity 0.4s 0.2s;
+  perspective: 250vw;
+}
+
+.book p {
+  margin-top: 8vw;
+  text-align: center;
+  font-size: 5vw;
+  color: #000000;
+}
+
+.page {
+  width: 30vw;
+  height: 44vw;
+  background-color: #111111;
+  float: left;
+  margin-bottom: 0.5em;
+  background: left top no-repeat;
+  background-size: cover;
+}
+
+.page:nth-child(even) {
+  clear: both;
+}
+
+.book .pages {
+  width: 60vw;
+  height: 44vw;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  border-radius: 4px;
+}
+
+.book .page {
+  float: none;
+  clear: none;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 30vw;
+  height: 44vw;
+  transform-origin: 0 0;
+  transition: transform 1.4s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  background-color: #f0f0f0;
+}
+
+.book .page:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.7s;
+  z-index: 2;
+}
+
+.book .page:nth-child(odd) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+  right: 0;
+  border-radius: 0 4px 4px 0;
+  background-image: linear-gradient(to right, rgba(0,0,0,.15) 0%, rgba(0,0,0,0) 10%);
+}
+
+.book .page:nth-child(odd):hover {
+  transform: rotateY(-15deg);
+}
+
+.book .page:nth-child(odd):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.book .page:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+.book .page:nth-child(even) {
+  pointer-events: none;
+  transform: rotateY(180deg);
+  transform-origin: 100% 0;
+  left: 0;
+  border-radius: 4px 0 0 4px;
+  border-color: black;
+  background-image: linear-gradient(to left, rgba(0,0,0,.12) 0%, rgba(0,0,0,0) 10%);
+}
+
+.book .page:nth-child(even):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.book .page.grabbing {
+  transition: none;
+}
+
+.book .page.flipped:nth-child(odd) {
+  pointer-events: none;
+  transform: rotateY(-180deg);
+}
+
+.book .page.flipped:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.book .page.flipped:nth-child(even) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+}
+
+.book .page.flipped:nth-child(even):hover {
+  transform: rotateY(15deg);
+}
+
+.book .page.flipped:nth-child(even):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.book .page.flipped:nth-child(even):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.page:nth-child(odd){
+  background-position: right top;
+}
+
+/* Container styles */
+.wedding-book-container {
+  font-family: 'Lovers Quarrel', cursive;
+  background: #333;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 0;
+  line-height: 1.5em;
+}/* WeddingBook.css */
+
+* {
+  box-sizing: border-box;
+}
+
+.wedding-book-container {
+  font-family: 'Lovers Quarrel', cursive;
+  background: #333;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 0;
+  line-height: 1.5em;
+}
+
+.book {
+  transition: opacity 0.4s 0.2s;
+  perspective: 250vw;
+}
+
+.book p {
+  margin-top: 8vw;
+  text-align: center;
+  font-size: 5vw;
+  color: #000000;
+  font-family: 'Lovers Quarrel', cursive;
+}
+
+.page {
+  width: 30vw;
+  height: 44vw;
+  background-color: #f0f0f0;
+  float: left;
+  margin-bottom: 0.5em;
+  background-size: cover;
+}
+
+.page:nth-child(even) {
+  clear: both;
+}
+
+.book .pages {
+  width: 60vw;
+  height: 44vw;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  border-radius: 4px;
+}
+
+.book .page {
+  float: none;
+  clear: none;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 30vw;
+  height: 44vw;
+  transform-origin: 0 0;
+  transition: transform 1.4s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  background-color: #f0f0f0;
+}
+
+.book .page:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.7s;
+  z-index: 2;
+}
+
+.book .page:nth-child(odd) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+  right: 0;
+  border-radius: 0 4px 4px 0;
+  background-image: linear-gradient(to right, rgba(0,0,0,.15) 0%, rgba(0,0,0,0) 10%);
+}
+
+.book .page:nth-child(odd):hover {
+  transform: rotateY(-15deg);
+}
+
+.book .page:nth-child(odd):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.book .page:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+.book .page:nth-child(even) {
+  pointer-events: none;
+  transform: rotateY(180deg);
+  transform-origin: 100% 0;
+  left: 0;
+  border-radius: 4px 0 0 4px;
+  border-color: black;
+  background-image: linear-gradient(to left, rgba(0,0,0,.12) 0%, rgba(0,0,0,0) 10%);
+}
+
+.book .page:nth-child(even):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.book .page.grabbing {
+  transition: none;
+}
+
+.book .page.flipped:nth-child(odd) {
+  pointer-events: none;
+  transform: rotateY(-180deg);
+}
+
+.book .page.flipped:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.book .page.flipped:nth-child(even) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+}
+
+.book .page.flipped:nth-child(even):hover {
+  transform: rotateY(15deg);
+}
+
+.book .page.flipped:nth-child(even):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.book .page.flipped:nth-child(even):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+.page:nth-child(odd){
+  background-position: right top;
+}
+/* WeddingBook.css */
+@import url('https://fonts.googleapis.com/css?family=Lovers+Quarrel');
+
+* {
+  box-sizing: border-box;
+}
+
+.wedding-book-container {
+  font-family: 'Lovers Quarrel', cursive;
+  background: #333;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  line-height: 1.5em;
+}
+
+/* Book container */
+.book {
+  transition: opacity 0.4s 0.2s;
+  perspective: 250vw;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Pages container - Better proportions */
+.book .pages {
+  width: 60vw;
+  height: 42vw; /* Slightly reduced height for better proportions */
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  border-radius: 4px;
+  max-width: 800px;
+  max-height: 560px;
+}
+
+/* Individual page */
+.book .page {
+  float: none;
+  clear: none;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 30vw;
+  height: 42vw; /* Match pages container height */
+  transform-origin: 0 0;
+  transition: transform 1.4s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  background-color: #f0f0f0;
+  max-width: 400px;
+  max-height: 560px;
+  overflow: hidden;
+}
+
+/* Page content styles */
+.page-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5vw;
+}
+
+.full-page-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.text-page {
+  background: #fff;
+}
+
+.light-bg {
+  background-color: #f8f8f8 !important;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.page-text {
+  font-size: 4.5vw;
+  color: #000;
+  text-align: center;
+  margin: 0;
+  font-family: 'Lovers Quarrel', cursive;
+}
+
+.white-text {
+  color: white !important;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.page-title {
+  font-size: 3.5vw;
+  margin-bottom: 2.5vw;
+  text-align: center;
+  color: #333;
+  font-family: 'Lovers Quarrel', cursive;
+}
+
+.page-subtitle {
+  font-size: 3vw;
+  margin-bottom: 1.5vw;
+  color: #666;
+  text-align: center;
+  font-family: 'Lovers Quarrel', cursive;
+}
+
+.page-details {
+  font-size: 2.2vw;
+  color: #888;
+  text-align: center;
+  font-family: 'Lovers Quarrel', cursive;
+}
+
+/* Page flipping styles */
+.book .page:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.7s;
+  z-index: 2;
+}
+
+.book .page:nth-child(odd) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+  right: 0;
+  border-radius: 0 4px 4px 0;
+  background-image: linear-gradient(to right, rgba(0,0,0,.15) 0%, rgba(0,0,0,0) 10%);
+}
+
+.book .page:nth-child(odd):hover {
+  transform: rotateY(-15deg);
+}
+
+.book .page:nth-child(odd):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.book .page:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+.book .page:nth-child(even) {
+  pointer-events: none;
+  transform: rotateY(180deg);
+  transform-origin: 100% 0;
+  left: 0;
+  border-radius: 4px 0 0 4px;
+  border-color: black;
+  background-image: linear-gradient(to left, rgba(0,0,0,.12) 0%, rgba(0,0,0,0) 10%);
+}
+
+.book .page:nth-child(even):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.book .page.grabbing {
+  transition: none;
+}
+
+.book .page.flipped:nth-child(odd) {
+  pointer-events: none;
+  transform: rotateY(-180deg);
+}
+
+.book .page.flipped:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.book .page.flipped:nth-child(even) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+}
+
+.book .page.flipped:nth-child(even):hover {
+  transform: rotateY(15deg);
+}
+
+.book .page.flipped:nth-child(even):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.book .page.flipped:nth-child(even):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+.page:nth-child(odd){
+  background-position: right top;
+}
+
+/* Mobile Responsive Styles - Better proportions */
+@media (max-width: 768px) {
+  .wedding-book-container {
+    padding: 0.5em;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .book .pages {
+    width: 95vw;
+    height: 65vw; /* Much better proportion - similar to A4 ratio */
+    max-width: none;
+    max-height: none;
+  }
+
+  .book .page {
+    width: 47.5vw;
+    height: 65vw; /* Same as pages container */
+    max-width: none;
+    max-height: none;
+  }
+
+  .page-content {
+    padding: 3vw;
+  }
+
+  .page-text {
+    font-size: 6vw; /* Better balanced text size */
+  }
+
+  .page-title {
+    font-size: 5.5vw;
+    margin-bottom: 4vw;
+  }
+
+  .page-subtitle {
+    font-size: 5vw;
+    margin-bottom: 3vw;
+  }
+
+  .page-details {
+    font-size: 4vw;
+  }
+
+  /* Adjust perspective for mobile */
+  .book {
+    perspective: 300vw;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .book .pages {
+    width: 92vw;
+    height: 70vw; /* Slightly taller but still good proportion */
+  }
+
+  .book .page {
+    width: 46vw;
+    height: 70vw;
+  }
+
+  .page-text {
+    font-size: 7vw;
+  }
+
+  .page-title {
+    font-size: 6.5vw;
+  }
+
+  .page-subtitle {
+    font-size: 6vw;
+  }
+
+  .page-details {
+    font-size: 4.5vw;
+  }
+
+  .book {
+    perspective: 350vw;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .book .pages {
+    width: 75vw;
+    height: 52.5vw; /* Maintain 3:2 ratio */
+  }
+
+  .book .page {
+    width: 37.5vw;
+    height: 52.5vw;
+  }
+
+  .page-text {
+    font-size: 4vw;
+  }
+
+  .page-title {
+    font-size: 3.5vw;
+  }
+
+  .page-subtitle {
+    font-size: 3vw;
+  }
+
+  .page-details {
+    font-size: 2.5vw;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+  .book .pages {
+    width: 50vw;
+    height: 35vw; /* Nice wide format for large screens */
+    max-width: 700px;
+    max-height: 490px;
+  }
+
+  .book .page {
+    width: 25vw;
+    height: 35vw;
+    max-width: 350px;
+    max-height: 490px;
+  }
+
+  .page-text {
+    font-size: 3vw;
+  }
+
+  .page-title {
+    font-size: 2.5vw;
+  }
+
+  .page-subtitle {
+    font-size: 2.2vw;
+  }
+
+  .page-details {
+    font-size: 1.8vw;
+  }
+}
