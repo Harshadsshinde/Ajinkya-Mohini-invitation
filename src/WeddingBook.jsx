@@ -6,7 +6,6 @@ import img10 from './assets/inviter.jpg';
 import SakuraPetals from "./SakuraPetals";
 import img11 from './assets/img.jpg';
 
-
 const WeddingBook = () => {
   const [flippedPages, setFlippedPages] = useState(new Set());
   const pagesRef = useRef([]);
@@ -115,7 +114,7 @@ const WeddingBook = () => {
     ),
 
     // Page 3 - Final page with image and thank you text
-     (
+    (
       <div
         key={3}
         style={{
@@ -127,18 +126,48 @@ const WeddingBook = () => {
           alignItems: "center",
           padding: "40px",
           textAlign: "center",
-          background:" #d3cdc6ff"
+          background: `url(${img11}) no-repeat center center`,
+          backgroundSize: "cover",
+          position: "relative"
         }}
       >
-        <div className="final-image-container">
-          <img
-            src={img11} // You can change this to your specific final image
-            alt="Thank You"
-            className="final-image"
-          />
+        {/* Optional overlay for better text readability */}
+        <div 
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(255, 255, 255, 0.3)", // subtle white overlay
+            zIndex: 1
+          }}
+        />
+        
+        <div 
+          className="thank-you-text" 
+          style={{
+            color: "black",
+            position: "relative",
+            zIndex: 2,
+            fontSize: "3em",
+            fontWeight: "bold",
+          }}
+        >
+          {/* धन्यवाद */}
         </div>
-        <div className="thank-you-text">धन्यवाद</div>
-        <p className="final-message">
+        
+        <p 
+          className="final-message"
+          style={{
+            color: "black",
+            position: "relative",
+            zIndex: 2,
+            fontSize: "1.2em",
+            marginTop: "20px",
+            textShadow: "1px 1px 2px rgba(255,255,255,0.7)"
+          }}
+        >
         </p>
       </div>
     )
@@ -146,6 +175,11 @@ const WeddingBook = () => {
 
   return (
     <>
+      {/* Sliding Diagonals Background */}
+      <div className="bg"></div>
+      <div className="bg bg2"></div>
+      <div className="bg bg3"></div>
+      
       <SakuraPetals/>
       <div className="wedding-book-container">
         <div className="book">
