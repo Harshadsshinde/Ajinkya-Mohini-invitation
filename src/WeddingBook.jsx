@@ -3,6 +3,8 @@ import "./WeddingBook.css";
 import img8 from './assets/invitel.jpg';
 import img9 from './assets/invite2.jpg';
 import img10 from './assets/inviter.jpg';
+import SakuraPetals from "./SakuraPetals";
+import img11 from './assets/img.jpg';
 
 
 const WeddingBook = () => {
@@ -38,133 +40,132 @@ const WeddingBook = () => {
   };
 
   // Page contents - customize these for your wedding!
- const pageContents = [
-  // Page 0 - Full screen image
-  (
-    <div 
-      key={0}
-      style={{
-        height: "100%",
-        width: "100%",
-        overflow: "hidden"
-      }}
-    >
-      <img
-        src={img9}
-        alt="invitation"
+  const pageContents = [
+    // Page 0 - Cover with animated click indicator
+    (
+      <div 
+        key={0}
         style={{
-          width: "100%",
           height: "100%",
-          objectFit: "cover"
-        }}
-      />
-    </div>
-  ),
-
-  // Page 1 - Second full screen image
-  (
-    <div 
-      key={1}
-      style={{
-        height: "100%",
-        width: "100%",
-        overflow: "hidden",
-        background: "#fff"
-      }}
-    >
-      <img
-        src={img8}
-        alt="page"
-        style={{
           width: "100%",
-          height: "100%",
-          objectFit: "cover"
+          overflow: "hidden",
+          position: "relative"
         }}
-      />
-    </div>
-  ),
-
-  // Page 2 - Third image + text
-  (
-    <div 
-      key={2}
-      style={{
-        height: "100%",
-        width: "100%",
-        overflow: "hidden",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
-      <img
-        src={img10}
-        alt="couple"
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover"
-        }}
-      />
-
-    </div>
-  ),
-
-  // Page 3 - Simple text page
-  (
-    <div
-      key={3}
-      style={{
-        height: "100%",
-        width: "100%",
-        background: "#fff",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
-      <p style={{ fontSize: "6vw" }}>We’re getting married!</p>
-    </div>
-  ),
-
-  // Page 4 - Save the date
-  (
-    <div
-      key={4}
-      style={{
-        height: "100%",
-        width: "100%",
-        background: "#fff",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
-      <p style={{ fontSize: "6vw" }}>Save the Date</p>
-    </div>
-  )
-];
-
-  return (
-    <div className="wedding-book-container">
-      <div className="book">
-        <div id="pages" className="pages">
-          {Array.from({ length: 4 }, (_, index) => (
-            <div
-              key={index}
-              className={`page ${flippedPages.has(index) ? 'flipped' : ''}`}
-              ref={el => {
-                pagesRef.current[index] = el;
-              }}
-              onClick={() => handlePageClick(index)}
-            >
-              {pageContents[index] || ''}
-            </div>
-          ))}
+      >
+        <img
+          src={img9}
+          alt="invitation"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover"
+          }}
+        />
+        {/* Animated Click Here Indicator */}
+        <div className="click-indicator">
+          <div className="click-text">उघडा</div>
+          <div className="click-arrow">➜</div>
         </div>
       </div>
-    </div>
+    ),
+
+    // Page 1 - Second full screen image
+    (
+      <div 
+        key={1}
+        style={{
+          height: "100%",
+          width: "100%",
+          overflow: "hidden",
+          background: "#fff"
+        }}
+      >
+        <img
+          src={img8}
+          alt="page"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover"
+          }}
+        />
+      </div>
+    ),
+
+    // Page 2 - Third image
+    (
+      <div 
+        key={2}
+        style={{
+          height: "100%",
+          width: "100%",
+          overflow: "hidden"
+        }}
+      >
+        <img
+          src={img10}
+          alt="couple"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover"
+          }}
+        />
+      </div>
+    ),
+
+    // Page 3 - Final page with image and thank you text
+     (
+      <div
+        key={3}
+        style={{
+          height: "100%",
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "40px",
+          textAlign: "center",
+          background:" #d3cdc6ff"
+        }}
+      >
+        <div className="final-image-container">
+          <img
+            src={img11} // You can change this to your specific final image
+            alt="Thank You"
+            className="final-image"
+          />
+        </div>
+        <div className="thank-you-text">धन्यवाद</div>
+        <p className="final-message">
+        </p>
+      </div>
+    )
+  ];
+
+  return (
+    <>
+      <SakuraPetals/>
+      <div className="wedding-book-container">
+        <div className="book">
+          <div id="pages" className="pages">
+            {Array.from({ length: 4 }, (_, index) => (
+              <div
+                key={index}
+                className={`page ${flippedPages.has(index) ? 'flipped' : ''}`}
+                ref={el => {
+                  pagesRef.current[index] = el;
+                }}
+                onClick={() => handlePageClick(index)}
+              >
+                {pageContents[index] || ''}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

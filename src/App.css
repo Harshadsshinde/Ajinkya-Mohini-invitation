@@ -1,42 +1,276 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Sakura Petal Animations */
+@keyframes fall {
+  0% {
+    opacity: 0.9;
+    top: 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    opacity: 0.2;
+    top: 100vh;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes blow-soft-left {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -50%;
   }
 }
 
-.card {
-  padding: 2em;
+@keyframes blow-medium-left {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -100%;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@keyframes blow-soft-right {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: 50%;
+  }
 }
+
+@keyframes blow-medium-right {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+
+@keyframes sway-0 {
+  0% {
+    transform: rotate(-5deg);
+  }
+  40% {
+    transform: rotate(28deg);
+  }
+  100% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes sway-1 {
+  0% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: rotate(43deg);
+  }
+  100% {
+    transform: rotate(15deg);
+  }
+}
+
+@keyframes sway-2 {
+  0% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(56deg);
+  }
+  100% {
+    transform: rotate(22deg);
+  }
+}
+
+@keyframes sway-3 {
+  0% {
+    transform: rotate(25deg);
+  }
+  40% {
+    transform: rotate(74deg);
+  }
+  100% {
+    transform: rotate(37deg);
+  }
+}
+
+@keyframes sway-4 {
+  0% {
+    transform: rotate(40deg);
+  }
+  40% {
+    transform: rotate(68deg);
+  }
+  100% {
+    transform: rotate(25deg);
+  }
+}
+
+@keyframes sway-5 {
+  0% {
+    transform: rotate(50deg);
+  }
+  40% {
+    transform: rotate(78deg);
+  }
+  100% {
+    transform: rotate(40deg);
+  }
+}
+
+@keyframes sway-6 {
+  0% {
+    transform: rotate(65deg);
+  }
+  40% {
+    transform: rotate(92deg);
+  }
+  100% {
+    transform: rotate(58deg);
+  }
+}
+
+@keyframes sway-7 {
+  0% {
+    transform: rotate(72deg);
+  }
+  40% {
+    transform: rotate(118deg);
+  }
+  100% {
+    transform: rotate(68deg);
+  }
+}
+
+@keyframes sway-8 {
+  0% {
+    transform: rotate(94deg);
+  }
+  40% {
+    transform: rotate(136deg);
+  }
+  100% {
+    transform: rotate(82deg);
+  }
+}
+
+
+
+/* Different petal shapes and colors */
+.sakura.petal-1 {
+  background: linear-gradient(135deg, #ffb7c5, #ff9eb5);
+  width: 16px;
+  height: 16px;
+}
+
+.sakura.petal-2 {
+  background: linear-gradient(135deg, #ff9eb5, #ff85a1);
+  width: 18px;
+  height: 18px;
+  border-radius: 60% 0 60% 0;
+}
+
+.sakura.petal-3 {
+  background: linear-gradient(135deg, #ff85a1, #ff6b8b);
+  width: 14px;
+  height: 14px;
+  border-radius: 70% 0 70% 0;
+}
+
+.sakura.petal-4 {
+  background: linear-gradient(135deg, #ffb7c5, #ff9eb5);
+  width: 22px;
+  height: 22px;
+  border-radius: 50% 0 50% 0;
+}
+
+/* Heart-shaped petals for wedding theme */
+.sakura.heart {
+  background: #ff6b8b;
+  width: 16px;
+  height: 16px;
+  border-radius: 0;
+  transform: rotate(45deg);
+}
+
+.sakura.heart::before,
+.sakura.heart::after {
+  content: '';
+  position: absolute;
+  background: #ff6b8b;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+}
+
+.sakura.heart::before {
+  top: -8px;
+  left: 0;
+}
+
+.sakura.heart::after {
+  top: 0;
+  left: -8px;
+}
+/* Add to your index.css */
+.sakura.golden {
+  background: linear-gradient(135deg, #D4AF37, #FFD700);
+  width: 18px;
+  height: 18px;
+  border-radius: 50% 0 50% 0;
+  opacity: 0.7;
+}
+
+.sakura.maroon {
+  background: linear-gradient(135deg, #800020, #A52A2A);
+  width: 16px;
+  height: 16px;
+  border-radius: 60% 0 60% 0;
+  opacity: 0.6;
+}
+
+/* Sakura Petal Animations - FOR HERO SECTION ONLY */
+.sakura {
+  position: absolute; /* Changed from fixed */
+  top: -10px;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  z-index: 20;
+  background: #ffb7c5;
+  border-radius: 50% 0 50% 0;
+  transform-origin: center;
+  opacity: 0.7;
+}
+
+/* Update fall animation for container height */
+@keyframes fall {
+  0% {
+    opacity: 0.9;
+    top: 0;
+  }
+  100% {
+    opacity: 0.2;
+    top: 100vh; /* Changed from 100% to 100vh to fill viewport height */
+  }
+}
+
+/* Keep all your existing petal styles... */
+.sakura.petal-1 {
+  background: linear-gradient(135deg, #ffb7c5, #ff9eb5);
+  width: 14px;
+  height: 14px;
+  opacity: 0.6;
+}
+
+.sakura.petal-2 {
+  background: linear-gradient(135deg, #ff9eb5, #ff85a1);
+  width: 16px;
+  height: 16px;
+  border-radius: 60% 0 60% 0;
+  opacity: 0.6;
+}
+
+/* ... rest of your petal styles */
+

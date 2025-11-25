@@ -142,7 +142,7 @@
 /* Container styles */
 .wedding-book-container {
   font-family: 'Lovers Quarrel', cursive;
-  background: #333;
+  background: #b3d0eb;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   min-height: 100vh;
   display: flex;
@@ -158,7 +158,7 @@
 
 .wedding-book-container {
   font-family: 'Lovers Quarrel', cursive;
-  background: #333;
+  background: #F5E9DA;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   min-height: 100vh;
   display: flex;
@@ -306,18 +306,7 @@
   box-sizing: border-box;
 }
 
-.wedding-book-container {
-  font-family: 'Lovers Quarrel', cursive;
-  background: #333;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2em;
-  line-height: 1.5em;
-  width: 100%;
-}
+
 
 /* Center wrapper for book */
 .book-wrapper {
@@ -664,5 +653,264 @@
 
   .book {
     perspective: 350vw;
+  }
+}
+/* WeddingBook.css */
+@import url('https://fonts.googleapis.com/css?family=Lovers+Quarrel');
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+/* Center wrapper for book */
+.book-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Book container */
+.book {
+  transition: opacity 0.4s 0.2s;
+  perspective: 250vw;
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Pages container - Fixed laptop sizing */
+.book .pages {
+  width: 800px;
+  height: 560px;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  border-radius: 8px;
+}
+
+/* Individual page */
+.book .page {
+  float: none;
+  clear: none;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 400px;
+  height: 560px;
+  transform-origin: 0 0;
+  transition: transform 1.4s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+
+/* Click Here Animation */
+.click-indicator {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: bounce 2s infinite;
+}
+
+.click-text {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.click-arrow {
+  color: white;
+  font-size: 24px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: point 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes point {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+/* Final Page Styles */
+.final-image-container {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border: 5px solid white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.final-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thank-you-text {
+  font-size: 60px;
+  color: white;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.final-message {
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  max-width: 80%;
+  line-height: 1.4;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Lovers Quarrel', cursive;
+}
+
+/* Page flipping styles */
+.book .page:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.7s;
+  z-index: 2;
+}
+
+.book .page:nth-child(odd) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+  right: 0;
+  border-radius: 0 8px 8px 0;
+  background-image: linear-gradient(to right, rgba(0,0,0,.15) 0%, rgba(0,0,0,0) 10%);
+}
+
+.book .page:nth-child(odd):hover {
+  transform: rotateY(-15deg);
+}
+
+.book .page:nth-child(odd):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.book .page:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+.book .page:nth-child(even) {
+  pointer-events: none;
+  transform: rotateY(180deg);
+  transform-origin: 100% 0;
+  left: 0;
+  border-radius: 8px 0 0 8px;
+  border-color: black;
+  background-image: linear-gradient(to left, rgba(0,0,0,.12) 0%, rgba(0,0,0,0) 10%);
+}
+
+.book .page:nth-child(even):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.book .page.grabbing {
+  transition: none;
+}
+
+.book .page.flipped:nth-child(odd) {
+  pointer-events: none;
+  transform: rotateY(-180deg);
+}
+
+.book .page.flipped:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.book .page.flipped:nth-child(even) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+}
+
+.book .page.flipped:nth-child(even):hover {
+  transform: rotateY(15deg);
+}
+
+.book .page.flipped:nth-child(even):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.book .page.flipped:nth-child(even):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .book .pages {
+    width: 95vw;
+    height: 65vw;
+  }
+
+  .book .page {
+    width: 47.5vw;
+    height: 65vw;
+  }
+
+  .click-indicator {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .click-text {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .click-arrow {
+    font-size: 18px;
+  }
+
+  .final-image-container {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+
+  .thank-you-text {
+    font-size: 40px;
+  }
+
+  .final-message {
+    font-size: 18px;
   }
 }
